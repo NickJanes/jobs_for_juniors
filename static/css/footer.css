@@ -1,0 +1,32 @@
+/* footer.css */
+
+.footer {
+  background-color: rgb(94, 112, 111); /* Dark grey background color for the navbar */
+  color: #d6b496; /* White text color for the footer */
+  padding: 20px 0; /* Adjust padding for spacing */
+}
+
+.footer p {
+  margin-bottom: 0; /* Remove default margin for the paragraph */
+}
+
+.footer ul {
+  list-style: none; /* Remove default list styles */
+  padding: 0; /* Remove default padding */
+}
+
+.footer ul li {
+  display: inline-block;
+  margin-right: 15px; /* Adjust margin for spacing between list items */
+}
+
+.footer a {
+  color: #fff; /* White text color for links on hover */
+  text-decoration: none; /* Remove underline from links */
+  transition: color 0.3s ease; /* Smooth transition effect for color */
+}
+
+.footer a:hover {
+  color: #ffcc00; /* Yellow text color for links in the footer */
+  text-decoration: underline; /* Underline on hover */
+}

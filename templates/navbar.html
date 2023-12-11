@@ -1,0 +1,59 @@
+{% load static %}
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-sm fixed-top">
+    <div class="container">
+        <!-- Full Name Link to Home -->
+        <a class="navbar-brand" href="{% url 'home' %}">Jobs 4 Jrs</a>
+        
+        <!-- Navbar Toggle Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <!-- Navbar Links -->
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">Home</a>
+                </li>
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'profile' %}">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'create_posting_form' %}">Post Job</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Log In</a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<script>
+    let prevScrollPos = window.pageYOffset;
+    const navbar = document.querySelector('.navbar');
+
+    window.onscroll = function () {
+        const currentScrollPos = window.pageYOffset;
+
+        if (prevScrollPos > currentScrollPos) {
+            // Scrolling Up: Slide Down Animation
+            navbar.style.transition = 'top 0.2s';
+            navbar.style.top = '0';
+        } else {
+            // Scrolling Down: Slide Up Animation
+            navbar.style.transition = 'top 0.2s';
+            navbar.style.top = `-${navbar.offsetHeight}px`;
+        }
+
+        prevScrollPos = currentScrollPos;
+    };
+</script>

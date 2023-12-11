@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block head %}
+
+{% endblock %}
+
+{% block title %}
+Nick Janes
+{% endblock %}
+
+{% block content %}
+
+<div class="content-section">
+  <div class="content-container">
+    <form class="row" action="{% url 'profile' %}" method="POST">
+      {% csrf_token %}
+      <h1> Profile </h1>
+
+      <label class="col-sm-2" for="username" id="username">Username</label>
+      <input type="text" class="form-control col-sm-4" name="username" placeholder="{{ user.username }}">
+
+      <div class="form-group">
+        <label for="role">User Role</label>
+        <select class="form-select form-select-sm" name="role" id="role">
+          <option value="A" {% if user.profile.role == 'A'%}selected{% endif %}>Applicant</option>
+          <option value="C" {% if user.profile.role == 'C'%}selected{% endif %}>Company</option>
+        </select>
+        <button type="submit" class="btn btn-primary">Sign in</button>
+      </div>
+    </form>
+      
+  </div>
+</div>
+{% endblock %}

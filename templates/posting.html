@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block head %}
+
+{% endblock %}
+
+{% block title %}
+Nick Janes
+{% endblock %}
+
+{% block content %}
+<div class="content-section">
+  <div class="content-container">
+    <a href="{% url 'home' %}">
+      <button>Back to all Postings</button>
+    </a>
+
+    <div class="posting-detailed">
+        <h1 class="title">{{ title }}</h1>
+        <p class="company">{{ company }}</p>
+        <p class="description">{{ description }}</p>
+        <p class="salary">${{salary_low}} - ${{salary_high}}</p>
+        <p class="flexibility">{{ flexibility }}</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

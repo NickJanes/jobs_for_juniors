@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block head %}
+
+{% endblock %}
+
+{% block title %}
+Nick Janes
+{% endblock %}
+
+{% block content %}
+    <a href="{% url 'home' %}">
+      <button>Clear all Tags</button>
+    </a>
+
+
+    {% for posting in postings %}
+      <div class="col-md-4 g-4">
+        <div class="posting border bg-dark">
+          <a class="nav-link" href="{% url 'posting' posting.id %}">
+            <h1 class="title">{{ posting.title }}</h1>
+            <p class="company">{{ posting.company }}</p>
+            <p class="salary">${{posting.salary_low}} - ${{posting.salary_high}}</p>
+            <p class="flexibility">{{ posting.get_flexibility_display }}</p>
+          </a>
+
+          {% for tag in posting.tags %}
+            <a class="nav-link tag" href="{% url 'search' %}?tag={{tag.tag|lower}}">
+              {{ tag.tag }}
+            </a>
+          {% endfor %}
+
+          <hr>
+          <button>Apply</button>
+        </div>
+      </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,25 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+{% endblock %}
+
+{% block title %}
+Log In
+{% endblock %}
+
+{% block content %}
+{% comment %} <div class="content-section">
+  <div class="content-container"> {% endcomment %}
+    <!-- templates/registration/login.html -->
+
+    
+    <form method="post">
+      {% csrf_token %}
+      <h2>Log In</h2>
+      {{ form.as_p }}
+      <button type="submit">Log In</button>
+    </form>
+  {% comment %} </div>
+</div> {% endcomment %}
+{% endblock %}
