@@ -12,4 +12,3 @@ class PostingTagAdmin(admin.ModelAdmin):
 admin.site.register(Posting, PostingAdmin)
 admin.site.register(Tag)
 admin.site.register(PostingTag, PostingTagAdmin)
-admin.site.register(Profile)

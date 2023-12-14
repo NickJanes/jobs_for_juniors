@@ -9,17 +9,12 @@ Log In
 {% endblock %}
 
 {% block content %}
-{% comment %} <div class="content-section">
-  <div class="content-container"> {% endcomment %}
-    <!-- templates/registration/login.html -->
-
-    
-    <form method="post">
-      {% csrf_token %}
-      <h2>Log In</h2>
-      {{ form.as_p }}
-      <button type="submit">Log In</button>
-    </form>
-  {% comment %} </div>
-</div> {% endcomment %}
+<form method="post">
+  {% csrf_token %}
+  <h2>Log In</h2>
+  {{ form.as_div }}
+  <input type="submit"></input>
+  <a href="{% url 'register' role='A' %}"><div class="register-applicant">Register Applicant</div></a>
+  <a href="{% url 'register' role='C' %}"><div class="register-company">Register Company</div></a>
+</form>
 {% endblock %}

@@ -3,6 +3,7 @@ body {
   padding-top: 56px; /* Adjust based on your navbar height */
   background-color: rgb(131, 135, 113);
   height: 100%;
+  color: white;
 }
 
 .content {
@@ -12,13 +13,19 @@ body {
   font-family: 'roboto', serif; /* Use a serif font for paragraphs */
 }
 
-.content button {
+button {
   padding: 6px 12px;
   border: none;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  color: white;
+  background-color: #333
+}
+
+.btn-delete {
+  background-color: #bd3247;
 }
 
 .posting {
@@ -54,10 +61,75 @@ body {
   max-width: 960px;
 }
 
+
 form {
   padding: 10px;
   border-radius: 8px;
   margin-bottom: 24px;
   background-color: rgb(158, 162, 137);
   overflow: hidden;
+
+  .errorlist {
+    color: red;
+  }
+  
+  input[type=text], select, input[type="password"] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  input[type=submit] {
+    width: 100%;
+    background-color: #56cb5a;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type=submit]:hover {
+    background-color: #4fc154;
+  }
+
+  .register-company {
+    width: 100%;
+    background-color: #325fc6;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .register-company:hover {
+    background-color: #325cbd;
+  }
+
+  .register-applicant {
+    width: 100%;
+    background-color: #eebd3f;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .register-applicant:hover {
+    background-color: #e0b23e;
+  }
+
+  a:visited {
+    text-decoration: none;
+  }
 }

@@ -20,6 +20,10 @@ Nick Janes
         <p class="description">{{ description }}</p>
         <p class="salary">${{salary_low}} - ${{salary_high}}</p>
         <p class="flexibility">{{ flexibility }}</p>
+        {% if owner == user %}
+        test
+        <p class="btn-delete"> Delete? </p>
+        {% endif %}
     </div>
   </div>
 </div>

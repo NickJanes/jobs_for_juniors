@@ -9,16 +9,12 @@ Log In
 {% endblock %}
 
 {% block content %}
-<div class="content-section">
-  <div class="content-container">
-    <!-- templates/registration/login.html -->
-    <form method="post">
-      {% csrf_token %}
-      <h2>Register</h2>
-      {{ user_form.as_p }}
-      {{ profile_form.as_p }}
-      <button type="submit">Log In</button>
-    </form>
-  </div>
-</div>
+<!-- templates/registration/login.html -->
+<form method="post">
+  {% csrf_token %}
+  <h2>Register</h2>
+  {{ user_form.as_p }}
+  {{ profile_form.as_p }}
+  <input type="submit"/>
+</form>
 {% endblock %}

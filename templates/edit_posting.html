@@ -1,0 +1,21 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block head %}
+{% endblock %}
+
+{% block title %}
+Nick Janes
+{% endblock %}
+
+{% block content %}
+
+  <form class="row" action="{% url 'create_posting' %}" method="POST">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <hr>
+      <div id="buttons">
+        <input type="submit"/>
+      </div>
+  </form>
+{% endblock %}

@@ -1,8 +1,8 @@
 from django.db import models
-from django.contrib.auth.models import User
-
+from users.models import User
 
 class Posting(models.Model):
+  owner = models.ForeignKey(User, on_delete=models.CASCADE)
   title = models.CharField(max_length=100)
   company = models.CharField(max_length=100)
   description = models.CharField(max_length=10000)
@@ -35,10 +35,6 @@ class PostingTag(models.Model):
       models.UniqueConstraint(fields=['posting', 'tag'], name='unique_tag_post')
     ]
 
-class Profile(models.Model):
-  user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
-  role = models.CharField(max_length=1, choices=(("A", "Applicant"), ("C", "Company")), default="A")
-
 class Application(models.Model):
   posting_id = models.ForeignKey(Posting, on_delete=models.CASCADE)
-  user_id = models.ForeignKey(Profile, on_delete=models.CASCADE)
+  user_id = models.ForeignKey(User, on_delete=models.CASCADE)
