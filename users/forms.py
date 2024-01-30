@@ -1,10 +1,10 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import (
-    UserCreationForm
+    UserCreationForm, PasswordChangeForm
 )
-
 from .models import User
+from posting.models import Resume
 
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField()

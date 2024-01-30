@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.forms import ModelChoiceField
-from .models import Posting, PostingTag, Tag
+from .models import Posting, PostingTag, Resume, Tag
 from .forms import PostingForm
 
 # Create your views here.
@@ -22,17 +22,26 @@ def index(request):
   return render(request, 'index.html', context)
 
 def posting(request, posting_id):
-  return render(request, 'posting.html', vars(Posting.objects.get(id=posting_id)))
+  posting = Posting.objects.get(id=posting_id)
+  return render(request, 'posting.html', {'posting': posting})
 
 def create_posting(request):
   if not request.user.is_authenticated:
-    return redirect('accounts/login/')
+    return redirect('/accounts/login/')
 
   posting_form = PostingForm(request.POST or None)
   if posting_form.is_valid():
     posting = posting_form.save(commit=False)
     posting.owner = request.user
     posting.save()
-    return redirect('posting/' + str(posting.id))
+    return redirect('/posting/' + str(posting.id))
 
   return render(request, 'create_posting.html', {"form": posting_form})
+
+def apply(request, posting_id):
+  if not request.user.is_authenticated:
+    return redirect('/accounts/login/?next=../../apply/{}'.format(posting_id))
+  
+  resumes = Resume.objects.filter(user_id=request.user)
+  posting = Posting.objects.get(id=posting_id)
+  return render(request, 'apply.html', {"resumes": resumes, "posting": posting})

@@ -1,7 +1,7 @@
 /* footer.css */
 
 .footer {
-  background-color: rgb(94, 112, 111); /* Dark grey background color for the navbar */
+  background-color: #282828; /* Dark grey background color for the navbar */
   color: #d6b496; /* White text color for the footer */
   padding: 20px 0; /* Adjust padding for spacing */
 }

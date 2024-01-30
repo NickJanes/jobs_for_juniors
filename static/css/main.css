@@ -1,10 +1,15 @@
 
 body {
   padding-top: 56px; /* Adjust based on your navbar height */
-  background-color: rgb(131, 135, 113);
+  background-color: rgb(71, 71, 71);
   height: 100%;
   color: white;
 }
+
+ a, a:hover, a:visited {
+  text-decoration: none;
+  color: white;
+ }
 
 .content {
   padding-top: 40px;
@@ -31,16 +36,12 @@ button {
 .posting {
   border-radius: 6px;
   padding: 10px;
-  background-color: rgb(158, 162, 137);
+  background-color: rgb(71, 71, 71);
 }
 
 .posting {
-  .company {
-    display: inline-block;
-  }
-
-  .salary {
-    display: inline-block;
+  div {
+    display: inline;
   }
 
   .tag {
@@ -57,16 +58,15 @@ button {
   padding: 10px;
   border-radius: 10px;
   margin-bottom: 24px;
-  background-color: rgb(158, 162, 137);
-  max-width: 960px;
+  /* max-width: 960px; */
 }
 
 
 form {
-  padding: 10px;
+  padding: 20px;
   border-radius: 8px;
   margin-bottom: 24px;
-  background-color: rgb(158, 162, 137);
+  background-color: #333;
   overflow: hidden;
 
   .errorlist {
@@ -75,7 +75,7 @@ form {
   
   input[type=text], select, input[type="password"] {
     width: 100%;
-    padding: 12px 20px;
+    padding: 4px 10px;
     margin: 8px 0;
     display: inline-block;
     border: 1px solid #ccc;
@@ -129,7 +129,4 @@ form {
     background-color: #e0b23e;
   }
 
-  a:visited {
-    text-decoration: none;
-  }
 }

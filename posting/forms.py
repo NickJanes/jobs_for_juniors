@@ -1,5 +1,5 @@
 from django import forms
-from .models import Posting
+from .models import Posting, Application, Resume
  
  
 # creating a form
@@ -16,3 +16,8 @@ class PostingForm(forms.ModelForm):
         #     "description",
         # ]
         exclude = ['owner']
+
+class ResumeForm(forms.ModelForm):
+    class Meta:
+        model = Resume
+        fields = ['name', 'file']

@@ -5,6 +5,7 @@ class Posting(models.Model):
   owner = models.ForeignKey(User, on_delete=models.CASCADE)
   title = models.CharField(max_length=100)
   company = models.CharField(max_length=100)
+  location = models.CharField(max_length=100)
   description = models.CharField(max_length=10000)
   salary_low = models.IntegerField()
   salary_high = models.IntegerField()
@@ -35,6 +36,15 @@ class PostingTag(models.Model):
       models.UniqueConstraint(fields=['posting', 'tag'], name='unique_tag_post')
     ]
 
+
+class Resume(models.Model):
+
+  user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+  created_at = models.DateTimeField(auto_now_add=True)
+  name = models.TextField(max_length=100)
+  file = models.FileField(upload_to="files/resumes")
+
 class Application(models.Model):
   posting_id = models.ForeignKey(Posting, on_delete=models.CASCADE)
   user_id = models.ForeignKey(User, on_delete=models.CASCADE)
+  resume_id = models.ForeignKey(Resume, on_delete=models.CASCADE)
