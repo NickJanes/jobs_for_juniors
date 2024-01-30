@@ -12,7 +12,7 @@ Nick Janes
 
   <form class="row" action="{% url 'create_posting' %}" method="POST">
       {% csrf_token %}
-      {{ form.as_p }}
+      {{ form.as_div }}
       <hr>
       <div id="buttons">
         <input type="submit"/>

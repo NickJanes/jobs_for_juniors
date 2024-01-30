@@ -9,15 +9,17 @@ Nick Janes
 
 {% block content %}
 
-
+  <div class="row px-2">
     {% for posting in postings %}
-      <div class="col-lg-4 g-4">
+      <div class="col-xl-4 g-2">
         <div class="posting border bg-dark">
           <a class="nav-link" href="{% url 'posting' posting.id %}">
             <h1 class="title">{{ posting.title }}</h1>
-            <p class="company">{{ posting.company }}</p>
-            <p class="salary">${{posting.salary_low}} - ${{posting.salary_high}}</p>
-            <p class="flexibility">{{ posting.get_flexibility_display }}</p>
+            <div class="company">{{ posting.company }} | </div>
+            <div class="location">{{ posting.location }} | </div>
+            <div class="flexibility">{{ posting.get_flexibility_display }}</div>
+            <br>
+            <div class="salary">${{posting.salary_low}} - ${{posting.salary_high}}</div>
           </a>
           
           {% for tag in posting.tags %}
@@ -31,10 +33,11 @@ Nick Janes
             {% if posting.owner == user %}
               <button class="btn-delete" type="button">Delete</button>
             {% else %}
-              <button>Apply</button>
+            <a href="{% url 'apply' posting_id=posting.id %}"><div class="apply">Apply</div></a>
             {% endif %}
           </div>
         </div>
       </div>
     {% endfor %}
+  </div>
 {% endblock %}

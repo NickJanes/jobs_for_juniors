@@ -18,7 +18,7 @@
     {% include 'navbar.html' %}
     {% block body %}
     <div class="container">
-        <div class="content row px-4">
+        <div class="content">
             {% block content %}
             {% endblock %}
         </div>
@@ -26,5 +26,9 @@
     </div>
     {% include 'footer.html' %}
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script>
+        var x = document.querySelectorAll("form input");
+        x.forEach((y) => y.classList.add("form-control"));
+    </script>
 </body>
 </html>

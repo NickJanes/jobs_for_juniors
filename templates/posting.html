@@ -8,23 +8,26 @@ Nick Janes
 {% endblock %}
 
 {% block content %}
-<div class="content-section">
-  <div class="content-container">
-    <a href="{% url 'home' %}">
-      <button>Back to all Postings</button>
-    </a>
+<a href="{% url 'home' %}">
+  <button>Back to all Postings</button>
+</a>
+{% if posting.owner == user %}
+<a href="{% url 'postings' %}">
+  <button>My Postings</button>
+</a>
+{% endif%}
+<div class="posting border bg-dark">
 
-    <div class="posting-detailed">
-        <h1 class="title">{{ title }}</h1>
-        <p class="company">{{ company }}</p>
-        <p class="description">{{ description }}</p>
-        <p class="salary">${{salary_low}} - ${{salary_high}}</p>
-        <p class="flexibility">{{ flexibility }}</p>
-        {% if owner == user %}
-        test
-        <p class="btn-delete"> Delete? </p>
-        {% endif %}
-    </div>
+  <div class="posting-detailed">
+    <h1 class="title">{{ posting.title }}</h1>
+    <div class="company">{{ posting.company }}</div>
+    <div class="description">{{ posting.description }}</div>
+    <div class="salary">${{posting.salary_low}} - ${{posting.salary_high}}</div>
+    <div class="flexibility">{{ posting.flexibility }}</div>
+    {% if posting.owner == user %}
+    test
+    <div class="btn-delete"> Delete? </div>
+    {% endif %}
   </div>
 </div>
 {% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'profile/profile_base.html' %}
+
+
+{% block profile %}
+<h1> Resumes </h1>
+<table class="table table-dark table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Upload Date</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+      {% for resume in resumes %}
+      <tr>
+          <td> {{ resume.name }}</td>
+          <td> {{ resume.upload_date }}</td>
+          <td>
+              <a href="#" class="btn btn-primary">View</a>
+          </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <h4> Upload new Resume </h4>
+  <form enctype="multipart/form-data" action="{% url 'resumes' %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_div }}
+    <input type="submit"></input>
+  </form>
+{% endblock %}

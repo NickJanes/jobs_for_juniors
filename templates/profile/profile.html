@@ -1,0 +1,22 @@
+{% extends 'profile/profile_base.html' %}
+
+
+{% block profile %}
+<h1> {{ user.first_name|default:'Profile' }} </h1>
+<ul class="list-group list-group-flush">
+  <li class="list-group-item bg-dark">
+      <a href="{% url 'edit_profile' %}" class="text-white">Edit Profile</a>
+  </li>
+  {% if user.role == 'A' %}
+  <li class="list-group-item bg-dark">
+      <a href="{% url 'resumes' %}" class="text-white">Edit Resumes</a>
+  </li>
+  {% endif %}
+  {% if user.role == 'C' %}
+  <li class="list-group-item bg-dark">
+      <a href="{% url 'postings' %}" class="text-white">Manage Postings</a>
+  </li>
+  {% endif %}
+</ul>
+
+{% endblock %}

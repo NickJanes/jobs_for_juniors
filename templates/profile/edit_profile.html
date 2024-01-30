@@ -1,0 +1,10 @@
+{% extends 'profile/profile_base.html' %}
+
+{% block profile %}
+
+  <form class="row" action="{% url 'profile' %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_div }}
+    <input type="submit"></input>
+  </form>
+{% endblock %}

@@ -1,0 +1,36 @@
+
+{% extends 'base.html' %}
+{% block head %}
+{% endblock %}
+
+{% block title %}
+Nick Janes
+{% endblock %}
+
+{% block content %}
+
+  <form action="{% url 'apply' posting.id %}" method="POST">
+      {% csrf_token %}
+      <div class="px-2">
+        {{ posting.title }} -
+        {{ posting.company }},
+        {{ posting.location }}
+        <br>
+        {{ posting.description }}
+      </div>c
+      <br><br><br>
+      <select style="font-weight: bold;">
+      {% for resume in resumes %}
+        <option>
+          {{ resume.name }} -
+          {{ resume.created_at.date }}
+        </tr>
+      {% endfor %}
+      </select>
+      {{ form.as_div }}
+      <hr>
+      <div id="buttons">
+        <input type="submit"/>
+      </div>
+  </form>
+{% endblock %}
