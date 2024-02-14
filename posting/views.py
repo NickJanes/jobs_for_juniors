@@ -23,7 +23,7 @@ def index(request):
 
 def posting(request, posting_id):
   posting = Posting.objects.get(id=posting_id)
-  return render(request, 'posting.html', {'posting': posting})
+  return render(request, 'posting-detailed.html', {'posting': posting})
 
 def create_posting(request):
   if not request.user.is_authenticated:

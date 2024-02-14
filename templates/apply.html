@@ -1,6 +1,11 @@
 
 {% extends 'base.html' %}
 {% block head %}
+<style>
+#confirmation {
+  visibility: hidden;
+}
+</style>
 {% endblock %}
 
 {% block title %}
@@ -8,6 +13,11 @@ Nick Janes
 {% endblock %}
 
 {% block content %}
+
+  <div id="confirmation">
+    <div>
+    </div>
+  </div>
 
   <form action="{% url 'apply' posting.id %}" method="POST">
       {% csrf_token %}
@@ -29,8 +39,18 @@ Nick Janes
       </select>
       {{ form.as_div }}
       <hr>
+      <div id="confirmation">
+        <div>
+          Hey
+          {% comment %} <input type="submit"></input> {% endcomment %}
+        </div>
+      </div>
       <div id="buttons">
-        <input type="submit"/>
+        <button class="btn btn-success" onclick="() => {
+          var x = document.getElementById('confirmation').style.visibility = 'visible';
+
+        }
+        ">Test</button>
       </div>
   </form>
 {% endblock %}

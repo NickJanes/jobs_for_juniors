@@ -10,25 +10,19 @@
     <link rel="stylesheet" href="{% static 'css/footer.css' %}">
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Gentium+Book+Basic:wght@700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     {% block head %}{% endblock %}
     <title>{% block title %}{% endblock %}</title>
 </head>
-<body class="bg-dark">
+<body>
     {% include 'navbar.html' %}
-    {% block body %}
-    <div class="container">
-        <div class="content">
+    <div class="container content">
             {% block content %}
             {% endblock %}
-        </div>
-        {% endblock %}
     </div>
     {% include 'footer.html' %}
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script>
-        var x = document.querySelectorAll("form input");
-        x.forEach((y) => y.classList.add("form-control"));
-    </script>
 </body>
 </html>

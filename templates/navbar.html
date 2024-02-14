@@ -1,8 +1,8 @@
 {% load static %}
 
 <!-- Navbar -->
-<nav class="navbar navbar-dark navbar-expand-sm fixed-top">
-    <div class="container">
+<nav class="navbar navbar-expand-sm">
+    <div class="container-fluid">
         <!-- Full Name Link to Home -->
         <a class="navbar-brand" href="{% url 'home' %}">Jobs 4 Jrs</a>
         
@@ -40,7 +40,7 @@
 </nav>
 
 <script>
-    let prevScrollPos = window.pageYOffset;
+    {% comment %} let prevScrollPos = window.pageYOffset;
     const navbar = document.querySelector('.navbar');
 
     window.onscroll = function () {
@@ -57,5 +57,5 @@
         }
 
         prevScrollPos = currentScrollPos;
-    };
+    }; {% endcomment %}
 </script>

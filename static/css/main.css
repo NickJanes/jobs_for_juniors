@@ -1,21 +1,20 @@
 
 body {
-  padding-top: 56px; /* Adjust based on your navbar height */
-  background-color: rgb(71, 71, 71);
+  background-color: rgb(245, 245, 245);
   height: 100%;
-  color: white;
+  color: #000;
 }
 
  a, a:hover, a:visited {
   text-decoration: none;
-  color: white;
+  color: #333;
  }
 
 .content {
   padding-top: 40px;
   min-height: 100vh;
   color: #fff;
-  font-family: 'roboto', serif; /* Use a serif font for paragraphs */
+  font-family: 'Lato', serif; /* Use a serif font for paragraphs */
 }
 
 button {
@@ -36,22 +35,17 @@ button {
 .posting {
   border-radius: 6px;
   padding: 10px;
-  background-color: rgb(71, 71, 71);
+  background-color: #fff;
+  border: 1px solid #ccc;
 }
 
-.posting {
-  div {
-    display: inline;
-  }
-
-  .tag {
-    display: inline-block;
-    padding: 2px 4px 4px 4px;
-    margin: 2px;
-    background-color: rgb(162, 183, 159);
-    border: 1px solid #fff;
-    border-radius: 4px;
-  }
+.posting .tag {
+  display: inline-block;
+  padding: 2px 4px 4px 4px;
+  margin: 2px;
+  background-color: rgb(162, 183, 159);
+  border: 1px solid #fff;
+  border-radius: 4px;
 }
 
 .posting-detailed {

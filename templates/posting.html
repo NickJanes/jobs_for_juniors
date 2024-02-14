@@ -1,33 +1,26 @@
-{% extends 'base.html' %}
-{% block head %}
-
-{% endblock %}
-
-{% block title %}
-Nick Janes
-{% endblock %}
-
-{% block content %}
-<a href="{% url 'home' %}">
-  <button>Back to all Postings</button>
-</a>
-{% if posting.owner == user %}
-<a href="{% url 'postings' %}">
-  <button>My Postings</button>
-</a>
-{% endif%}
-<div class="posting border bg-dark">
-
-  <div class="posting-detailed">
-    <h1 class="title">{{ posting.title }}</h1>
-    <div class="company">{{ posting.company }}</div>
-    <div class="description">{{ posting.description }}</div>
+<div class="col-sm-4 posting">
+  <a href="{% url 'posting-detailed' posting.id %}">
+    <h2 class="title">{{ posting.title }}</h2>
+    <div class="company">{{ posting.company }} | </div>
+    <div class="location">{{ posting.location }} | </div>
+    <div class="flexibility">{{ posting.get_flexibility_display }}</div>
+    <br>
     <div class="salary">${{posting.salary_low}} - ${{posting.salary_high}}</div>
-    <div class="flexibility">{{ posting.flexibility }}</div>
+  </a>
+  
+  {% for tag in posting.tags %}
+  <a class="nav-link tag" href="{% url 'search' %}?tag={{tag.tag|lower}}">
+    {{ tag.tag }}
+  </a>
+  {% endfor %}
+  
+  <hr>
+  <div class="buttons">
     {% if posting.owner == user %}
-    test
-    <div class="btn-delete"> Delete? </div>
+      <button class="btn-delete" type="button">Delete</button>
+    {% else %}
+    <a href="{% url 'apply' posting_id=posting.id %}"><div class="apply">Apply</div></a>
     {% endif %}
   </div>
+
 </div>
-{% endblock %}

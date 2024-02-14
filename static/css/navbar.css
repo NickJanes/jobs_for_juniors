@@ -2,36 +2,32 @@
 
 /* Navbar Container */
 .navbar {
-  background-color: #282828; /* Dark background color */
-  /* border-bottom: 2px solid #d6b496; Brown border at the bottom */
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
 }
 
 /* Navbar Brand (Your Full Name) */
 .navbar-brand {
-  color: #e5dab6; /* Gold text color */
+  color: #000; /* Gold text color */
   font-family: sans-serif; /*Choose a decorative font*/
-  font-size: 18pt; /* Increase font size for emphasis */
-  font-style: bold;
+  font-size: 16pt; /* Increase font size for emphasis */
+  font-weight: bold;
 }
 
 .navbar-brand:hover {
-  color: white; /* Gold text color */
+  color: #555;
   /* font-size: 20pt; Increase font size for emphasis */
+  text-decoration: underline;
 }
 
 /* Navbar Links */
 .navbar-nav .nav-link {
-  color: #e5dab6; /* Gold text color */
+  color: #000; /* Gold text color */
   font-family: sans-serif; /* Choose a serif font for a book-like feel */
   font-size: 12pt; /* Adjust font size as needed */
   /* padding: 10px; */
 }
 
 .navbar-nav .nav-link:hover {
-  color: rgb(253, 225, 211); /* Brighter gold color on hover */
-}
-
-/* Navbar Toggle Icon Color */
-.navbar-toggler-icon {
-  background-color: #ece9df; /* Gold color for the toggle icon */
+  color: #555; /* Brighter gold color on hover */
 }
