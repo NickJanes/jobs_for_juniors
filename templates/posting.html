@@ -1,26 +1,31 @@
-<div class="col-sm-4 posting">
+<div class="col-lg-4 posting">
   <a href="{% url 'posting-detailed' posting.id %}">
-    <h2 class="title">{{ posting.title }}</h2>
-    <div class="company">{{ posting.company }} | </div>
-    <div class="location">{{ posting.location }} | </div>
-    <div class="flexibility">{{ posting.get_flexibility_display }}</div>
-    <br>
+    <h3 class="title">{{ posting.title }}</h3>
     <div class="salary">${{posting.salary_low}} - ${{posting.salary_high}}</div>
+    <ul class="list-inline">
+      <li class="list-inline-item">{{ posting.company }} |</li>
+      <li class="list-inline-item">{{ posting.location }} |</li>
+      <li class="list-inline-item">{{ posting.get_flexibility_display }}</li>
+    </ul>
   </a>
   
-  {% for tag in posting.tags %}
-  <a class="nav-link tag" href="{% url 'search' %}?tag={{tag.tag|lower}}">
-    {{ tag.tag }}
-  </a>
+  {% for postingtag in posting.tags %}
+    <a class="tag" style="background-color: #{{postingtag.tag.color}}" href="{% url 'search' %}?tag={{postingtag.tag|lower}}">
+      {{ postingtag.tag.name }}
+    </a>
   {% endfor %}
   
-  <hr>
   <div class="buttons">
     {% if posting.owner == user %}
+    <a href="{% url 'delete' posting_id=posting.id %}">
       <button class="btn-delete" type="button">Delete</button>
+    </a>
     {% else %}
-    <a href="{% url 'apply' posting_id=posting.id %}"><div class="apply">Apply</div></a>
+    <a href="{% url 'apply' posting_id=posting.id %}">
+      <button class="btn-success">Apply</button>
+    </a>
     {% endif %}
   </div>
 
 </div>
+

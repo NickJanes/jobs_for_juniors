@@ -20,6 +20,7 @@ class Posting(models.Model):
 
 class Tag(models.Model):
   name = models.CharField(max_length=32, unique=True)
+  color = models.CharField(max_length=6)
 
   def __str__(self):
     return self.name

@@ -1,11 +1,14 @@
+:root {
+  /* accent-color: red; */
+}
 
 body {
-  background-color: rgb(245, 245, 245);
+  /* background-color: rgb(245, 245, 245); */
   height: 100%;
   color: #000;
 }
 
- a, a:hover, a:visited {
+ a, a:visited {
   text-decoration: none;
   color: #333;
  }
@@ -13,7 +16,7 @@ body {
 .content {
   padding-top: 40px;
   min-height: 100vh;
-  color: #fff;
+  /* color: #fff; */
   font-family: 'Lato', serif; /* Use a serif font for paragraphs */
 }
 
@@ -25,7 +28,7 @@ button {
   cursor: pointer;
   transition: background-color 0.3s ease;
   color: white;
-  background-color: #333
+  background-color: #333;
 }
 
 .btn-delete {
@@ -33,19 +36,29 @@ button {
 }
 
 .posting {
-  border-radius: 6px;
+  /* border-radius: 6px; */
   padding: 10px;
-  background-color: #fff;
+  /* background-color: #fff; */
   border: 1px solid #ccc;
 }
 
 .posting .tag {
+  display: inline;
+  padding: 2px;
+  font-size: 10px;
+  margin-right: 2px;
+  border-radius: 6px;
+  margin-bottom: 2px;
+}
+
+.posting ul {
+  margin-bottom: 4px;
+}
+
+.posting .title {
   display: inline-block;
-  padding: 2px 4px 4px 4px;
-  margin: 2px;
-  background-color: rgb(162, 183, 159);
-  border: 1px solid #fff;
-  border-radius: 4px;
+  margin-right: 10px;
+  font-weight: bold;
 }
 
 .posting-detailed {
@@ -55,12 +68,30 @@ button {
   /* max-width: 960px; */
 }
 
+.posting .salary {
+  /* display: inline-block; */
+  margin-right: 10px;
+  color: rgb(66, 121, 66);
+}
+
+.posting .buttons {
+  float: right;
+}
+
+.nav-link {
+  color: black;
+}
+
+.nav-link:hover {
+  color: #333;
+  text-decoration: underline;
+}
+
 
 form {
   padding: 20px;
   border-radius: 8px;
   margin-bottom: 24px;
-  background-color: #333;
   overflow: hidden;
 
   .errorlist {

@@ -42,6 +42,18 @@ def apply(request, posting_id):
   if not request.user.is_authenticated:
     return redirect('/accounts/login/?next=../../apply/{}'.format(posting_id))
   
-  resumes = Resume.objects.filter(user_id=request.user)
+  resumes = Resume.objects.filter(user_id=request.user).all()
+  if len(resumes) == 0:
+    return redirect('/accounts/profile/resumes/?next=../../apply/{}'.format(posting_id))
+                    
   posting = Posting.objects.get(id=posting_id)
   return render(request, 'apply.html', {"resumes": resumes, "posting": posting})
+
+def delete(request, posting_id):
+  if not request.user.is_authenticated:
+    return redirect('/')
+  
+  posting = Posting.objects.get(id=posting_id)
+  if posting.owner == request.user:
+    posting.delete()
+  return redirect('/')
